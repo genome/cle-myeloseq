@@ -1,0 +1,17 @@
+{	
+    "ProcessHaloplexHS.JobGroup":"/cle/haloplex",
+    "ProcessHaloplexHS.SampleSheet":"/gscmnt/gc13016/cle/54f8f7b915cb472aa183c721307369ab_scratch_space/myeloseq/haloplex/wdl_out/1_MO/sample_index",
+    "ProcessHaloplexHS.OutputDir":"/gscmnt/gc13016/cle/54f8f7b915cb472aa183c721307369ab_scratch_space/myeloseq/haloplex/wdl_out/1_MO",
+    "ProcessHaloplexHS.Queue":"compute-mgi-cle",
+    "ProcessHaloplexHS.Reference":"/gscmnt/gc2709/info/production_reference_GRCh37-lite/CLE/Haloplex/reference/all_sequences.fa",
+    "ProcessHaloplexHS.VEP":"/gscmnt/gc2709/info/production_reference_GRCh37-lite/CLE/Haloplex/VEP_cache",
+    "ProcessHaloplexHS.QcMetrics":"/gscmnt/gc2709/info/production_reference_GRCh37-lite/CLE/Haloplex/accessory_files/MyeloseqQCMetrics.txt",
+    "ProcessHaloplexHS.Description":"/gscmnt/gc2709/info/production_reference_GRCh37-lite/CLE/Haloplex/accessory_files/MyeloseqDescription.1.1.txt",
+    "ProcessHaloplexHS.HaplotectBed":"/gscmnt/gc2709/info/production_reference_GRCh37-lite/CLE/Haloplex/accessory_files/myeloseq.haplotect_snppairs.041718.bed",
+    "ProcessHaloplexHS.AmpliconBed":"/gscmnt/gc2709/info/production_reference_GRCh37-lite/CLE/Haloplex/accessory_files/04818-1516117769_Amplicon.b37.bed",
+    "ProcessHaloplexHS.TargetBed":"/gscmnt/gc2709/info/production_reference_GRCh37-lite/CLE/Haloplex/accessory_files/04818-1516117769_Covered.b37.bed",
+    "ProcessHaloplexHS.CoverageBed":"/gscmnt/gc2709/info/production_reference_GRCh37-lite/CLE/Haloplex/accessory_files/CoverageQC.b37.022219.bed",
+    "ProcessHaloplexHS.CustomAnnotationVcf":"/gscmnt/gc2709/info/production_reference_GRCh37-lite/CLE/Haloplex/accessory_files/myeloseq_custom_annotations.annotated.011618.b37.vcf.gz",
+    "ProcessHaloplexHS.CustomAnnotationIndex":"/gscmnt/gc2709/info/production_reference_GRCh37-lite/CLE/Haloplex/accessory_files/myeloseq_custom_annotations.annotated.011618.b37.vcf.gz.tbi",
+    "ProcessHaloplexHS.IlluminaDir":"/gscmnt/gc13037/lims/2018-02/csf_165609746"
+}
