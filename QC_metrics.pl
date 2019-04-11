@@ -19,8 +19,12 @@ use IO::File;
 use File::Basename;
 use Sort::Naturally;
 
-die "Provide myeloseq run batch_name" unless @ARGV and @ARGV == 1;
-my ($batch_name) = @ARGV;
+die "Provide myeloseq output dir" unless @ARGV and @ARGV == 1;
+my $dir = $ARGV[0];
+
+unless (-d $dir) {
+    die "myeloseq output dir: $dir not existing";
+}
 
 my @case_metrics_list = qw(
     TOTAL_READS 
@@ -56,12 +60,6 @@ my @case_metrics_list = qw(
     FAILEDGENES
 );
 
-my $dir = '/gscmnt/gc13016/cle/54f8f7b915cb472aa183c721307369ab_scratch_space/myeloseq/RUN/wdl_out/'.$batch_name;
-
-unless (-d $dir) {
-    die "batch wdl_out dir: $dir not existing";
-}
-
 my @headers = ('Case', @case_metrics_list);
 
 my $out_file = $dir.'/QC_metrics.tsv';
@@ -72,7 +70,7 @@ $out_fh->print("\n");
 opendir(my $dir_h, $dir);
 
 for my $case_name (readdir $dir_h) {
-    next if $case_name =~ /^\./;
+    next if $case_name =~ /^\.|^cromwell/;
     my $lib_dir = $dir .'/'.$case_name;
     next unless -d $lib_dir;
 
