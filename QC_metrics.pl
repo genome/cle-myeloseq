@@ -90,8 +90,14 @@ for my $case_name (readdir $dir_h) {
 
     for my $case_metrics_name (@case_metrics_list) {
         if ($case_metrics_name eq 'FAILED_HOTSPOTQC' or $case_metrics_name eq 'PASSED_HOTSPOTQC') {
-            my $str = join ',', @{$data->{$case_metrics_name}};
-            push @values, $str;
+            my $info = $data->{$case_metrics_name};
+            if ($info) {
+                my $str = join ',', @{$data->{$case_metrics_name}};
+                push @values, $str;
+            }
+            else {
+                push @values, 'NA';
+            }
         }
         elsif ($case_metrics_name eq 'FAILEDGENES') {
             my $info = $data->{$case_metrics_name};
