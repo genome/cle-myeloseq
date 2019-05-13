@@ -7,25 +7,26 @@ workflow ProcessHaloplexHS {
     Array[Array[String]] inputData = read_tsv(SampleSheet)
     Array[String] Adapters = ["GATCGGAAGAGCACACGTCTGAACTCCAGTCAC","AGATCGGAAGAGCGTCGTGTAGGGAAA"]
     
-    String CustomAnnotationParameters = "MYELOSEQ,vcf,exact,0,TCGA_AC,MDS_AC,MYELOSEQBLACKLIST"
-
     String IlluminaDir
     String JobGroup
     String OutputDir
     String Queue
-    String Reference
-    String VEP
-    String QcMetrics
-    String Description
-    String HaplotectBed
-    String AmpliconBed
-    String TargetBed
-    String CoverageBed
+    
+    String Reference    = "/gscmnt/gc2709/info/production_reference_GRCh37-lite/CLE/Haloplex/reference/all_sequences.fa"
+    String VEP          = "/gscmnt/gc2709/info/production_reference_GRCh37-lite/CLE/Haloplex/VEP_cache"
+    String QcMetrics    = "/gscmnt/gc2709/info/production_reference_GRCh37-lite/CLE/Haloplex/git/cle-myeloseq/accessory_files/MyeloseqQCMetrics.txt"
+    String Description  = "/gscmnt/gc2709/info/production_reference_GRCh37-lite/CLE/Haloplex/git/cle-myeloseq/accessory_files/MyeloseqDescription.1.1.txt"
+    String HaplotectBed = "/gscmnt/gc2709/info/production_reference_GRCh37-lite/CLE/Haloplex/git/cle-myeloseq/accessory_files/myeloseq.haplotect_snppairs.041718.bed"
+    String AmpliconBed  = "/gscmnt/gc2709/info/production_reference_GRCh37-lite/CLE/Haloplex/git/cle-myeloseq/accessory_files/04818-1516117769_Amplicon.b37.bed"
+    String TargetBed    = "/gscmnt/gc2709/info/production_reference_GRCh37-lite/CLE/Haloplex/git/cle-myeloseq/accessory_files/04818-1516117769_Covered.b37.bed"
+    String CoverageBed  = "/gscmnt/gc2709/info/production_reference_GRCh37-lite/CLE/Haloplex/git/cle-myeloseq/accessory_files/CoverageQC.b37.022219.bed"
 
-    String CustomAnnotationVcf
-    String CustomAnnotationIndex
+    String CustomAnnotationVcf   = "/gscmnt/gc2709/info/production_reference_GRCh37-lite/CLE/Haloplex/git/cle-myeloseq/accessory_files/myeloseq_custom_annotations.annotated.011618.b37.vcf.gz"
+    String CustomAnnotationIndex = "/gscmnt/gc2709/info/production_reference_GRCh37-lite/CLE/Haloplex/git/cle-myeloseq/accessory_files/myeloseq_custom_annotations.annotated.011618.b37.vcf.gz.tbi"
     
+    String CustomAnnotationParameters = "MYELOSEQ,vcf,exact,0,TCGA_AC,MDS_AC,MYELOSEQBLACKLIST"
     
+
     call barcode_demux {
         input: Dir=IlluminaDir, #Fastqs=get_fastq_files.fastq_files,
                SampleSheet=SampleSheet,
