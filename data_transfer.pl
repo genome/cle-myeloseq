@@ -17,13 +17,13 @@ use File::Copy qw(copy);
 
 umask 002;
 
-unless (@ARGV >= 1) {
-    die "Batch directory to be transferred are required. Sample case dirs that are excluded for transfer are optional"; 
+unless (@ARGV >= 2) {
+    die "Myeloseq output directory and batch_number are required. Sample case dirs that are excluded for transfer are optional"; 
 }
 
-my $batch_dir = shift @ARGV;
+my $batch_dir  = shift @ARGV;
+my $batch_name = shift @ARGV;
 my @exclude_cases = @ARGV;
-my $batch_name = basename $batch_dir;
 
 unless (-d $batch_dir) {
     die "The provided batch dir $batch_dir is not valid";
@@ -54,6 +54,7 @@ for my $case (readdir $dir_h) {
     next if $case =~ /^\./;
     next if grep {$_ eq $case} @exclude_cases;
     next unless -d File::Spec->join($batch_dir, $case);
+    next if $case =~ /^cromwell\-/;
 
     my ($real_name) = $case =~ /^(\S+lib\d+)_[ATCG]{8}/;
     #my $xfer_file_str = join ' ', map{File::Spec->join($batch_dir, $case, $real_name.'.'.$_)}@files_xfer;
