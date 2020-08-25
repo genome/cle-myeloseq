@@ -653,7 +653,8 @@ task run_haplotect {
 
      Int? MinReads
 
-     command {
+     command <<<
+             /usr/bin/awk -v OFS="\t" '{ $2=$2-1; print; }' ${Bed} > /tmp/pos.bed && \
              /usr/bin/java -Xmx6g \
              -jar /opt/gatk/public/external-example/target/external-example-1.0-SNAPSHOT.jar \
              -T Haplotect -R ${refFasta} \
@@ -661,11 +662,11 @@ task run_haplotect {
              -mr ${default=100 MinReads} \
              -I ${Bam} \
              -htp ${Bed} \
-             -L ${Bed} \
+             -L /tmp/pos.bed \
              -outPrefix ${Name} && \
              sort -u "${Name}.multihaploci.txt" > "${Name}.haplotectloci.txt" && \
              /usr/bin/perl /opt/CalculateContamination.pl "${Name}.txt" "${Name}.haplotectloci.txt" > "${Name}.haplotect.txt"
-     }
+     >>>
 
      runtime {
              docker_image: "registry.gsc.wustl.edu/fdu/haloplex-walker:1"
