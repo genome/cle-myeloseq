@@ -15,7 +15,7 @@ workflow ProcessHaloplexHS {
     String Reference    = "/gscmnt/gc2709/info/production_reference_GRCh37-lite/CLE/Haloplex/reference/all_sequences.fa"
     String VEP          = "/gscmnt/gc2709/info/production_reference_GRCh37-lite/CLE/Haloplex/VEP_cache"
     String QcMetrics    = "/gscmnt/gc2709/info/production_reference_GRCh37-lite/CLE/Haloplex/git/cle-myeloseq/accessory_files/MyeloseqQCMetrics.txt"
-    String Description  = "/gscmnt/gc2709/info/production_reference_GRCh37-lite/CLE/Haloplex/git/cle-myeloseq/accessory_files/MyeloseqDescription.1.1.txt"
+    String Description  = "/gscmnt/gc2709/info/production_reference_GRCh37-lite/CLE/Haloplex/git/cle-myeloseq/accessory_files/MyeloseqDescription.txt"
     String HaplotectBed = "/gscmnt/gc2709/info/production_reference_GRCh37-lite/CLE/Haloplex/git/cle-myeloseq/accessory_files/myeloseq.haplotect_snppairs.041718.bed"
     String AmpliconBed  = "/gscmnt/gc2709/info/production_reference_GRCh37-lite/CLE/Haloplex/git/cle-myeloseq/accessory_files/04818-1516117769_Amplicon.b37.bed"
     String TargetBed    = "/gscmnt/gc2709/info/production_reference_GRCh37-lite/CLE/Haloplex/git/cle-myeloseq/accessory_files/04818-1516117769_Covered.b37.bed"
