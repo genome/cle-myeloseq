@@ -1,5 +1,5 @@
 {	
-    "ProcessHaloplexHS.JobGroup":"/cle/haloplex",
+    "ProcessHaloplexHS.JobGroup":"/cle/wdl/haloplex",
     "ProcessHaloplexHS.SampleSheet":"PATH",
     "ProcessHaloplexHS.OutputDir":"PATH",
     "ProcessHaloplexHS.IlluminaDir":"PATH",
