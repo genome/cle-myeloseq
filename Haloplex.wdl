@@ -696,7 +696,7 @@ task make_reports {
      }
 
      runtime {
-         docker_image: "registry.gsc.wustl.edu/fdu/haloplex-qc:2"
+         docker_image: "registry.gsc.wustl.edu/fdu/haloplex-qc:3"
          queue: queue
          job_group: jobGroup
      } 
