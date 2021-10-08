@@ -43,6 +43,14 @@ else {
     }
 }
 
+my $QC = File::Spec->join($batch_dir, 'QC_metrics.tsv');
+if (-s $QC) {
+    copy $QC, $tmp_dir;
+}
+else {
+    warn "$QC does not exist or is empty\n";
+}
+
 my @files_xfer = qw(
     annotated.vcf.gz  annotated_filtered.vcf.gz 
     consensus.bam     consensus.bam.bai 
